@@ -24,7 +24,7 @@ ssl_update. IN KEY 512 3 165 K5E2fNueFF85hhlof98LQw==
 Rename this file to something more simple, e.g. `ssl_update.key`.
 
 __Kssl_update.+165+13761.private__
-```ini
+```
 Private-key-format: v1.3
 Algorithm: 165 (HMAC_SHA512)
 Key: K5E2fNueFF85hhlof98LQw==
@@ -40,7 +40,7 @@ Rename this file to something more simple, e.g. `ssl_update.private`.
 
 On your server running BIND, open the main configuration file (`/etc/named.conf`) and add the key definition:
 
-```ini
+```
 key "ssl_update" {
     algorithm hmac-sha512;
     secret "<YOUR KEY HERE>";
@@ -49,7 +49,7 @@ key "ssl_update" {
 
 With the above generated key pair example, it would look like this:
 
-```ini
+```
 key "ssl_update" {
     algorithm hmac-sha512;
     secret "K5E2fNueFF85hhlof98LQw==";
@@ -60,7 +60,7 @@ key "ssl_update" {
 
 For each DNS zone, where you want to do remote updates, you need to allow updates using the newly defined key:
 
-```ini
+```
 zone "domain1.com" { type master; file "named.domain1.com"; allow-update { key "ssl_update"; }; };
 ```
 
@@ -106,7 +106,7 @@ export CERTSDIR="/data/certs"
 
 There are two scripts provided that enable easy wildcard certificate generation for multiple domains.
 
-### Simple wildcard certificate generator - 'issue_one.sh'
+### Simple wildcard certificate generator - `issue_one.sh`
 
 To generate a wildcard certificate for one specific domain name, use the following script. As an argument, pass in the domain name which will be the subject along with it's subdomain wildcard:
 
