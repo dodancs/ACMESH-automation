@@ -80,6 +80,8 @@ Now restart BIND to apply the new configuration.
 
 Download and install acme.sh from a trusted source. Follow the tutorials specified by the author.
 
+Do not forget to make the nsupdate script executable (`chmod +x /opt/acme.sh/dnsapi/dns_nsupdate.sh`) and make sure you have `nsupdate` package installed.
+
 ### Create your environment configuration
 
 Copy the contents of the example acme environment and adjust it to your needs. Be sure to set the correct paths for acme.sh, change the nsupdate server connection (the IP address of your DNS server, the path to the generated key file, and the alias domain).
